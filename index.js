@@ -28,7 +28,16 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) { //set your parameter to movies
+   
+  // !be descriptive with your variable names!
+  //set your accumulator to an emoty array to gather the return!
+  let movieTitles = []; //create a variable that equals an empty array
+  for (let i = 0; i < movies.length; i++) { //start of for loop
+    movieTitles.push(movies[i].title); //condition is to return all titles from an array of 'movies' objects
+  }
+  return movieTitles;
+} //end of function
 
 /**
  * getHighestMetascore()

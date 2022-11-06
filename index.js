@@ -198,8 +198,17 @@ function filterByGenre(movies, genre) {
     ];
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies) { //set parameter
-
+let result = []; //create a variable for an empty array
+for (movie of movies){
+  if (Number(movie.released.slice(-4)) <= year) {
+    
+  } // utilizing year out of the parameter
+result.push(movie);
 }
+
+return result
+}
+
 
 /**
  * getBiggestBoxOfficeMovie()

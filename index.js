@@ -184,7 +184,9 @@ function filterByGenre() { }
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() { }
+function getAllMoviesReleasedAtOrBeforeYear(movies) { //set parameter
+ 
+ }
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -197,7 +199,22 @@ function getAllMoviesReleasedAtOrBeforeYear() { }
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() { }
+function getBiggestBoxOfficeMovie(movies) {
+  let highestBoxMov = 0; //create a variable for box movie number
+  let highestMovie = ""; // variable created for movie titles
+if (!movies.length) { //if the movie index is not strictly equal
+return null; 
+}
+for (let movie of movies){ //box number is a string
+let numberBox = Number(movie['boxOffice'].replace(/[$,]/g,''));
+//index of the box number is higher 
+if (numberBox > highestBoxMov){
+  highestBoxMov = numberBox;
+  highestMovie = movie['title'];
+}
+}
+return highestMovie;
+}
 
 // Do not change anything below this line.
 module.exports = {

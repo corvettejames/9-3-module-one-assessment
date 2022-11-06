@@ -99,19 +99,19 @@ function getAverageIMDBRating(movies) { //set your parameter
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) { //set parameter to movies
-let myObject = {}; //accumulator pattern 
+  let myObject = {}; //accumulator pattern 
 
-for (let i= 0; i < movies.length; i++) { //for loop begins
-let myKey = movies[i].rated; //looping through the movie index
-if (myObject[myKey]) { //accumlate beginning from 1
-} else {
-  myObject[myKey] = 1; //accumulator is being used for first index 
+  for (let i = 0; i < movies.length; i++) { //for loop begins
+    let myKey = movies[i].rated; //looping through the movie index
+    if (myObject[myKey]) { //accumlate beginning from 1
+    } else {
+      myObject[myKey] = 1; //accumulator is being used for first index 
+    }
+
+  }
+  return myObject
 }
 
-}
-return myObject
-}
- 
 
 /**
  * findById()
@@ -128,17 +128,17 @@ return myObject
     };
  */
 function findById(movies, id) { //parameter set
-if (movies.length === 0) { //index of movies equal to 0 
-  return null; 
+  if (movies.length === 0) { //index of movies equal to 0 
+    return null;
 
-} 
-for (i = 0; i < movies.length; i++){ //for loop created
-if (movies[i].imdbID === id) { //accumulator pattern
-  return movies[i];
+  }
+  for (i = 0; i < movies.length; i++) { //for loop created
+    if (movies[i].imdbID === id) { //accumulator pattern
+      return movies[i];
+    }
+  }
+  return null;
 }
-}
-return null;
- }
 
 /**
  * filterByGenre()
@@ -160,7 +160,20 @@ return null;
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() { }
+function filterByGenre(movies, genre) {
+  let Arr = [] //define an empty array
+  if (movies.length === 0) { //guard clause
+    return Arr // accumulator return 
+  }
+  for (i = 0; i < movies.length; i++) { // for loop created
+    let makeLowerCase = movies[i].genre.toLowerCase() //movie format
+    if (makeLowerCase.includes(genre.toLowerCase())) {
+      Arr.push(movies[i])
+    }
+
+  }
+  return Arr
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -185,8 +198,8 @@ function filterByGenre() { }
     ];
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies) { //set parameter
- 
- }
+
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -202,18 +215,18 @@ function getAllMoviesReleasedAtOrBeforeYear(movies) { //set parameter
 function getBiggestBoxOfficeMovie(movies) {
   let highestBoxMov = 0; //create a variable for box movie number
   let highestMovie = ""; // variable created for movie titles
-if (!movies.length) { //if the movie index is not strictly equal
-return null; 
-}
-for (let movie of movies){ //box number is a string
-let numberBox = Number(movie['boxOffice'].replace(/[$,]/g,''));
-//index of the box number is higher 
-if (numberBox > highestBoxMov){
-  highestBoxMov = numberBox;
-  highestMovie = movie['title'];
-}
-}
-return highestMovie;
+  if (!movies.length) { //if the movie index is not strictly equal
+    return null;
+  }
+  for (let movie of movies) { //box number is a string
+    let numberBox = Number(movie['boxOffice'].replace(/[$,]/g, '')); //remove template literals
+    //index of the box number is higher 
+    if (numberBox > highestBoxMov) {
+      highestBoxMov = numberBox;
+      highestMovie = movie['title'];
+    }
+  }
+  return highestMovie;
 }
 
 // Do not change anything below this line.

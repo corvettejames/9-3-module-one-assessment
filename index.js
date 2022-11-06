@@ -127,7 +127,18 @@ return myObject
       // Toy Story 4
     };
  */
-function findById() { }
+function findById(movies, id) { //parameter set
+if (movies.length === 0) { //index of movies equal to 0 
+  return null; 
+
+} 
+for (i = 0; i < movies.length; i++){ //for loop created
+if (movies[i].imdbID === id) { //accumulator pattern
+  return movies[i];
+}
+}
+return null;
+ }
 
 /**
  * filterByGenre()

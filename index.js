@@ -29,7 +29,7 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) { //set your parameter to movies
-   
+
   // !be descriptive with your variable names!
   //set your accumulator to an emoty array to gather the return!
   let movieTitles = []; //create a variable that equals an empty array
@@ -55,12 +55,12 @@ function getHighestMetascore(movies) { //set your parameter to movies
   if (movies.length) { // create guard clause
     hiScore = Number(movies[0].metascore) // converting a string to a number
   }
-  for (let i = 1;i < movies.length; i++ ){ //create for loop for comparison
-  if (Number(movies[i].metascore) > hiScore){ //encapsulating condition for the movie index
-     hiScore = Number(movies[i].metascore);
+  for (let i = 1; i < movies.length; i++) { //create for loop for comparison
+    if (Number(movies[i].metascore) > hiScore) { //encapsulating condition for the movie index
+      hiScore = Number(movies[i].metascore);
+    }
   }
-  }
-return hiScore 
+  return hiScore
 } //end of function
 
 /**
@@ -74,7 +74,18 @@ return hiScore
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) { //set your parameter
+  let avgRating = 0; //create a variable
+  for (let i = 0; i < movies.length; i++) { //for loop created for the parameter
+    avgRating += Number(movies[i].imdbRating); //accumalator
+    if (avgRating > 0) { // guard clause
+      avgRating /= movies.length;
+      //divide array for the outcome of the accumulator
+    }
+
+  }
+  return avgRating;
+} //end of function
 
 /**
  * countByRating()
@@ -87,7 +98,20 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) { //set parameter to movies
+let myObject = {}; //accumulator pattern 
+
+for (let i= 0; i < movies.length; i++) { //for loop begins
+let myKey = movies[i].rated; //looping through the movie index
+if (myObject[myKey]) { //accumlate beginning from 1
+} else {
+  myObject[myKey] = 1; //accumulator is being used for first index 
+}
+
+}
+return myObject
+}
+ 
 
 /**
  * findById()
@@ -103,7 +127,7 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById() { }
 
 /**
  * filterByGenre()
@@ -125,7 +149,7 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre() { }
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -149,7 +173,7 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear() { }
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -162,7 +186,7 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie() { }
 
 // Do not change anything below this line.
 module.exports = {

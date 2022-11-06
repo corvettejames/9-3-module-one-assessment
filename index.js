@@ -50,7 +50,18 @@ function getAllMovieTitles(movies) { //set your parameter to movies
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) { //set your parameter to movies
+  let hiScore = 0; //set accumulator
+  if (movies.length) { // create guard clause
+    hiScore = Number(movies[0].metascore) // converting a string to a number
+  }
+  for (let i = 1;i < movies.length; i++ ){ //create for loop for comparison
+  if (Number(movies[i].metascore) > hiScore){ //encapsulating condition for the movie index
+     hiScore = Number(movies[i].metascore);
+  }
+  }
+return hiScore 
+} //end of function
 
 /**
  * getAverageIMDBRating()
